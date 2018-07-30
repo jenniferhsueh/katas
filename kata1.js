@@ -13,7 +13,32 @@
 // input: "holly"
 // missing letters: "a,b,c,d,e,f,g,i,j,k,m,n,p,q,r,s,t,u,v,w,x,z"
 // output: "hIJKMNPQRSTUVWXZoPQRSTUVWXZlMNPQRSTUVWXZlyZ"
+           "hIJKLMNOPQRSTUVWXYZoPQRSTUVWXYZlMNOPQRSTUVWXYZlyZ"
 
 function insertMissingLetters (str){
-
+  let results = []
+  let alphabet = Array.from("abcdefghijklmnopqrstuvwxyz")
+  let newAlphabet = []
+  // for (var i = 0; i < alphabet.length; i++) {
+  //   letter = str[i]
+  //   if (alphabet[i] !== str[i]) {
+  //     newAlphabet.push[alphabet[i]]
+  //   }
+  //   console.log(newAlphabet)
+  // }
+  for (var i = 0; i < str.length; i++){ 
+    let letter = str[i] 
+    if (!results.includes(letter)) {
+      results.push(letter)
+      let startAlphabet = alphabet.indexOf(letter)
+      for(var j = startAlphabet + 1; j < alphabet.length; j++) {
+        results.push(alphabet[j].toUpperCase())
+      }
+    } else {
+      results.push(letter)
+    }
+  }
+  return results;
 }
+
+console.log(insertMissingLetters("holly").join(""))
